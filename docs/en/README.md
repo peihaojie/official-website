@@ -1,4 +1,12 @@
-# VuePress 2 已经发布 :tada: ！
+<!--
+ * @Author: HaoJie
+ * @Date: 2022-08-30 16:50:55
+ * @LastEditTime: 2022-08-30 16:51:13
+ * @LastEditors: HaoJie
+ * @FilePath: \vuePress\docs\en\README.md
+-->
+
+# 这是英文页面
 
 <!-- 相对路径 -->
 
