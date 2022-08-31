@@ -1,7 +1,7 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2022-08-31 16:49:58
+ * @LastEditTime: 2022-08-31 17:19:11
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\config.ts
  */
@@ -90,10 +90,10 @@ export default defineConfig({
           model: "shizuku",
           display: {
             position: "right", // 显示位置：left/right(default: 'right')
-            width: 135, // 模型的长度(default: 135)
-            height: 300, // 模型的高度(default: 300)
-            hOffset: 65, //  水平偏移(default: 65)
-            vOffset: 0, //  垂直偏移(default: 0)
+            width: 165, // 模型的长度(default: 135)
+            height: 450, // 模型的高度(default: 300)
+            hOffset: 20, //  水平偏移(default: 65)
+            vOffset: -110, //  垂直偏移(default: 0)
           },
           mobile: {
             show: false, // 是否在移动设备上显示(default: false)
