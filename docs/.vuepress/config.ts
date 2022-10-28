@@ -1,7 +1,7 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2022-08-31 17:19:11
+ * @LastEditTime: 2022-10-28 09:39:09
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\config.ts
  */
@@ -9,6 +9,7 @@ import { defineConfig } from "vuepress/config";
 
 export default defineConfig({
   head: [["link", { rel: "icon", href: "/images/logo.jpg" }]],
+  base: "./",
   locales: {
     "/": {
       lang: "zh-CN",

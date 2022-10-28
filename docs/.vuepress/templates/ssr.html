@@ -1,15 +1,18 @@
 <!--
  * @Author: HaoJie
- * @Date: 2022-08-30 17:01:12
- * @LastEditTime: 2022-10-28 09:08:15
+ * @Date: 2022-08-30 17:01:24
+ * @LastEditTime: 2022-10-28 09:54:42
  * @LastEditors: HaoJie
- * @FilePath: \vuePress\docs\.vuepress\templates\dev.html
+ * @FilePath: \vuePress\docs\.vuepress\templates\ssr.html
 -->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="{{ lang }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress {{ version }}" />
+    {{{ userHeadTags }}} {{{ pageMeta }}} {{{ canonicalLink }}} {{{
+    renderResourceHints() }}} {{{ renderStyles() }}}
     <style>
       .foot--wrap {
         padding: 10px;
@@ -23,7 +26,8 @@
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <!--vue-ssr-outlet-->
+    {{{ renderScripts() }}}
     <div class="foot--wrap">
       <span>© 2020-2022 HaoJie. All rights reserved.</span>
       <span>
