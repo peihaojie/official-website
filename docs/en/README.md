@@ -1,24 +1,11 @@
 <!--
  * @Author: HaoJie
  * @Date: 2022-08-30 16:50:55
- * @LastEditTime: 2022-08-30 16:51:13
+ * @LastEditTime: 2023-08-18 10:09:54
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\en\README.md
 -->
 
-# 这是英文页面
+# This is the English page
 
-<!-- 相对路径 -->
-
-[首页](../README.md)  
-[配置参考](../reference/config.md)  
-[快速上手](./getting-started.md)
-
-<!-- 绝对路径 -->
-
-[指南](/zh/guide/README.md)  
-[配置参考 > markdown.links](/zh/reference/config.md#links)
-
-<!-- URL -->
-
-[GitHub](https://github.com)
+Sorry, the English page is not finished yet, please look forward to it!

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "docs:dev cache": "vuepress dev docs --cache .cache",
+    "docs:dev no cache": "vuepress dev docs --no-cache",
     "docs:build": "vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.7",
+    "@vuepress/plugin-blog": "^1.9.4",
+    "@vuepress/plugin-nprogress": "^1.9.10",
     "vuepress": "^1.9.7",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-copyright": "^1.0.2",
@@ -20,10 +23,8 @@
     "vuepress-plugin-fulltext-search": "^2.2.1",
     "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-plugin-helper-live2d": "^1.0.2",
-    "vuepress-plugin-nprogress": "^1.1.8",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-smooth-scroll": "^0.0.10",
-    "vuepress-plugin-zooming": "^1.1.8",
-    "vuepress-theme-gungnir": "^0.3.0"
+    "vuepress-plugin-zooming": "^1.1.8"
   }
 }

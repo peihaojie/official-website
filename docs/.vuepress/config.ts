@@ -1,58 +1,125 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2022-10-28 09:39:09
+ * @LastEditTime: 2023-08-18 15:31:04
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\config.ts
  */
 import { defineConfig } from "vuepress/config";
 
+/**
+ * https://vuepress.vuejs.org/zh/config
+ */
 export default defineConfig({
   head: [["link", { rel: "icon", href: "/images/logo.jpg" }]],
-  base: "./",
+  // 键名是该语言所属的子路径
+  // 作为特例，默认语言可以使用 '/' 作为其路径。
   locales: {
     "/": {
-      lang: "zh-CN",
+      lang: "zh-CN", // 将会被设置为 <html> 的 lang 属性
       title: "_海色灏茫",
       description: "_海色灏茫的个人博客",
     },
     "/en/": {
       lang: "en-US",
-      title: "_HaiSeHaoMang",
+      title: "_haiSeHaoMang",
       description: "HaiSeHaoMang Personal Blog",
     },
   },
-  // theme: "gungnir",
+  // dev
+  dest: "./dist",
+  host: "127.0.0.1",
+  port: 8088,
+  // build
+  shouldPrefetch: () => true, // 预拉取
+  // Markdown 配置
+  markdown: {
+    // 代码块显示行号
+    lineNumbers: true,
+  },
+  /**
+   * https://vuepress.vuejs.org/zh/theme/default-theme-config.html
+   */
   themeConfig: {
+    // 多语言配置
     locales: {
       "/": {
+        // 多语言下拉菜单的标题
         selectText: "选择语言",
+        // 该语言在下拉菜单中的标签
         label: "简体中文",
+        // 编辑链接文字
         editLinkText: "在 GitHub 上编辑此页",
+        // 导航栏
+        navbar: true,
+        // 自定义导航栏
+        nav: [
+          { text: "首页", link: "/" },
+          {
+            text: "文章",
+            items: [{ text: "测试页面", link: "/zh/guide/page1" }],
+          },
+        ],
+        // sidebar: {
+        //   "/": [
+        //     {
+        //       title: "分组 1", // 必要的
+        //       path: "/zh/", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        //       collapsable: false, // 不可折叠，可选的, 默认值是 true,
+        //       sidebarDepth: 2, // 嵌套的标题链接，可选的, 默认值是 1
+        //       children: ["/"],
+        //     },
+        //   ],
+        // },
       },
       "/en/": {
         selectText: "Languages",
         label: "English",
         editLinkText: "Edit this page on GitHub",
+        // 导航栏
+        navbar: true,
+        // 自定义导航栏
+        nav: [
+          { text: "Home", link: "/en/" },
+          // {
+          //   text: "Article",
+          //   link: "/en/",
+          //   items: [{ text: "page1", link: "/en/guide/page1" }],
+          // },
+        ],
       },
     },
+    // 嵌套的标题链接
+    sidebarDepth: 2,
+    // 显示所有页面的标题链接
+    displayAllHeaders: true,
+    // 活动的标题链接
+    activeHeaderLinks: true,
+    // 上一篇链接
+    prev: true,
+    // 下一篇链接
+    next: true,
+    // 内置搜索
     search: true,
+    // 内置搜索
+    tags: true,
     searchMaxSuggestions: 30,
     lastUpdated: "Last Updated", // string | boolean
     // nextLinks: false, // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
     // prevLinks: false, // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
 
-    repo: "https://github.com/peihaojie/vuePress", // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
+    repo: "https://github.com/peihaojie/vuePress",
+    // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-    repoLabel: "查看源码",
+    // repoLabel: "查看源码",
 
     // 以下为可选的编辑链接选项
     // docsRepo: "vuejs/vuepress", // 假如你的文档仓库和项目本身不在一个仓库：
     // docsDir: "docs", // 假如文档不是放在仓库的根目录下：
     // docsBranch: "master", // 假如文档放在一个特定的分支下：
     editLinks: true, // 默认是 false, 设置为 true 来启用
-    editLinkText: "帮助我们改善此页面！", // 默认为 "Edit this page"
+    // editLinkText: "帮助我们改善此页面！", // 默认为 "Edit this page"
     smoothScroll: true,
 
     personalInfo: {
@@ -60,24 +127,52 @@ export default defineConfig({
       avatar: "/images/logo.jpg",
     },
   } as any,
-  // dev
-  dest: "./dist",
-  host: "0.0.0.0",
-  port: 8080,
-  // build
-  shouldPrefetch: () => true, // 预拉取
-  // Markdown 配置
-  markdown: {},
   // 插件配置
   plugins: [
+    /**
+     * 平滑滚动
+     * https://github.com/vuepress/vuepress-plugin-smooth-scroll
+     */
     ["vuepress-plugin-smooth-scroll"],
+    /**
+     * 页面滚动时自动激活侧边栏链接的插件
+     * https://vuepress.vuejs.org/zh/plugin/official/plugin-active-header-links.html
+     */
     ["@vuepress/active-header-links"],
-    ["vuepress-plugin-nprogress"],
+    /**
+     * 进度条插件
+     * https://vuepress.vuejs.org/zh/plugin/official/plugin-nprogress.html
+     */
+    ["@vuepress/nprogress'"],
+    /**
+     * 阅读进度条插件
+     * https://github.com/tolking/vuepress-plugin-reading-progress
+     */
     ["reading-progress"],
+    /**
+     * 为所有代码块添加复制代码
+     * https://github.com/znicholasbrown/vuepress-plugin-code-copy
+     */
     ["vuepress-plugin-code-copy", true],
+    /**
+     * 为鼠标添加可爱的点击效果
+     * https://github.com/moefyit/vuepress-plugin-cursor-effects
+     */
     ["cursor-effects"],
+    /**
+     * 点击可爱的猫猫回到顶部
+     * https://github.com/moefyit/vuepress-plugin-go-top
+     */
     ["go-top"],
+    /**
+     * 全文搜索功能
+     * https://github.com/leo-buneev/vuepress-plugin-fulltext-search
+     */
     ["fulltext-search"],
+    /**
+     * Live2D 看板娘
+     * https://github.com/JoeyBling/vuepress-plugin-helper-live2d
+     */
     [
       "vuepress-plugin-helper-live2d",
       {
@@ -105,6 +200,10 @@ export default defineConfig({
         },
       },
     ],
+    /**
+     * 缩放图像
+     * https://github.com/vuepress/vuepress-plugin-zooming
+     */
     [
       "vuepress-plugin-zooming",
       {
@@ -116,6 +215,10 @@ export default defineConfig({
         },
       },
     ],
+    /**
+     * 处理复制行为
+     * https://github.com/vuepress/vuepress-plugin-copyright
+     */
     [
       "copyright",
       {
@@ -124,6 +227,10 @@ export default defineConfig({
         clipboardComponent: ".vuepress/components/clipboard.vue",
       },
     ],
+    /**
+     * 动态标题
+     * https://github.com/moefyit/vuepress-plugin-dynamic-title
+     */
     [
       "dynamic-title",
       {
@@ -134,5 +241,10 @@ export default defineConfig({
         recoverTime: 2000,
       },
     ],
+    /**
+     * 博客
+     * https://vuepress.vuejs.org/zh/plugin/official/plugin-blog.html
+     */
+    ["@vuepress/blog"],
   ] as any,
 });
