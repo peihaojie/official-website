@@ -1,11 +1,11 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2023-08-19 15:43:19
+ * @LastEditTime: 2023-08-19 19:56:55
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\config.ts
  */
-import { defineConfig } from "vuepress/config";
+import { defineConfig, UserPlugins, DefaultThemeConfig } from "vuepress/config";
 
 /**
  * https://vuepress.vuejs.org/zh/config
@@ -40,7 +40,7 @@ export default defineConfig({
   /**
    * https://vuepress.vuejs.org/zh/theme/default-theme-config.html
    */
-  themeConfig: {
+  themeConfig: <DefaultThemeConfig>{
     // 多语言配置
     locales: {
       "/": {
@@ -111,7 +111,7 @@ export default defineConfig({
     // nextLinks: false, // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
     // prevLinks: false, // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
 
-    repo: "https://github.com/peihaojie/vuePress",
+    repo: "https://github.com/peihaojie/official-website",
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
@@ -129,9 +129,9 @@ export default defineConfig({
       name: "haoJie",
       avatar: "/images/logo.jpg",
     },
-  } as any,
+  },
   // 插件配置
-  plugins: [
+  plugins: <UserPlugins>[
     /**
      * 平滑滚动
      * https://github.com/vuepress/vuepress-plugin-smooth-scroll
@@ -259,7 +259,7 @@ export default defineConfig({
             dirname: "zh/_posts",
             // `entry page` (或者 `list page`) 的路径
             path: "/post",
-            itemPermalink: "/post/:year/:month/:day/:slug",
+            itemPermalink: "/posts/:year/:month/:day/:slug",
             // 组件需要自定义，准备转向其他 theme 解决方案
             layout: "IndexPost",
             itemLayout: "Post",
@@ -273,5 +273,5 @@ export default defineConfig({
         },
       },
     ],
-  ] as any,
+  ],
 });
