@@ -1,7 +1,7 @@
 <!--
  * @Author: HaoJie
  * @Date: 2023-08-19 19:36:32
- * @LastEditTime: 2023-08-19 19:52:17
+ * @LastEditTime: 2023-08-19 20:19:09
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\components\Utterances.vue
 -->
@@ -20,7 +20,7 @@ export default {
       const utterances = document.createElement("script");
       utterances.type = "text/javascript";
       utterances.async = true;
-      utterances.setAttribute("issue-term", window.location.pathname);
+      utterances.setAttribute("issue-term", "pathname");
       utterances.setAttribute("theme", "github-light");
       utterances.setAttribute("repo", `peihaojie/official-website`);
       utterances.crossorigin = "anonymous";
