@@ -1,7 +1,7 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2023-08-19 12:56:05
+ * @LastEditTime: 2023-08-19 15:43:19
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\config.ts
  */
@@ -248,6 +248,30 @@ export default defineConfig({
      * 博客
      * https://vuepress.vuejs.org/zh/plugin/official/plugin-blog.html
      */
-    ["@vuepress/blog"],
+    [
+      "@vuepress/blog",
+      {
+        directories: [
+          {
+            // 当前分类的唯一 ID
+            id: "post",
+            // 目标文件夹
+            dirname: "zh/_posts",
+            // `entry page` (或者 `list page`) 的路径
+            path: "/post",
+            itemPermalink: "/post/:year/:month/:day/:slug",
+            // 组件需要自定义，准备转向其他 theme 解决方案
+            layout: "IndexPost",
+            itemLayout: "Post",
+            pagination: {
+              lengthPerPage: 10,
+            },
+          },
+        ],
+        sitemap: {
+          hostname: "http://www.snowmanbar.com",
+        },
+      },
+    ],
   ] as any,
 });
