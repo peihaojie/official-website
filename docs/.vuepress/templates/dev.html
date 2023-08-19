@@ -1,7 +1,7 @@
 <!--
  * @Author: HaoJie
  * @Date: 2022-08-30 17:01:12
- * @LastEditTime: 2023-08-18 17:52:23
+ * @LastEditTime: 2023-08-19 12:45:55
  * @LastEditors: HaoJie
  * @FilePath: \vuePress\docs\.vuepress\templates\dev.html
 -->
@@ -24,14 +24,34 @@
   </head>
   <body>
     <div id="app"></div>
-    <div class="foot--wrap">
-      <span>Copyright © 2020-2022 HaoJie. All rights reserved.</span>
-      <span>
-        备案号:
-        <a href="https://beian.miit.gov.cn/" target="_blank">
-          粤ICP备2022026783号
-        </a>
-      </span>
-    </div>
+    <div class="foot--wrap"></div>
+
+    <script>
+      function createSpan(text) {
+        const span = document.createElement("span");
+        span.innerText = text;
+        return span;
+      }
+
+      function createA(text, href) {
+        const a = document.createElement("a");
+        a.innerText = text;
+        a.href = href;
+        return a;
+      }
+
+      window.onload = function () {
+        const footWrap = document.querySelector(".foot--wrap");
+        const copyright = createSpan(
+          `Copyright © 2020-${new Date().getFullYear()} HaoJie. All rights reserved.`
+        );
+        const internetContentProvider = createSpan("备案号: ");
+        internetContentProvider.appendChild(
+          createA("粤ICP备2022026783号", "https://beian.miit.gov.cn")
+        );
+        footWrap.appendChild(copyright);
+        footWrap.appendChild(internetContentProvider);
+      };
+    </script>
   </body>
 </html>
