@@ -58,7 +58,7 @@ pipeline {
             steps {
                 // 复制 build 文件夹的内容到 /www/web
                 script {
-                    sh 'cp -r build/* /www/web'
+                    sh 'cp -r dist/* /www/web'
                 }
             }
         }
