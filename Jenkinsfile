@@ -18,7 +18,7 @@ pipeline {
 
     triggers {
         // 使用 Generic Webhook Trigger 插件配置
-        genericWebhook(
+        GenericTrigger(
             genericVariables: [
                 [key: 'githubEvent', value: '$.headers.X-GitHub-Event'],
                 [key: 'repository', value: '$.repository.name'],
