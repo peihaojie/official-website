@@ -5,8 +5,8 @@
  * @LastEditors: HaoJie
  * @FilePath: \official-website\docs\.vuepress\components\Utterances.vue
 -->
-<template>
-  <div id="comment"></div>
+<template lang="pug">
+#comment
 </template>
 <script>
 export default {

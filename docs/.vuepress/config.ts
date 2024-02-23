@@ -37,6 +37,14 @@ export default defineConfig({
     // 代码块显示行号
     lineNumbers: true,
   },
+  chainWebpack: config => {
+    config.module
+      .rule('pug')
+      .test(/\.pug$/)
+      .use('pug-plain-loader')
+      .loader('pug-plain-loader')
+      .end()
+  },
   /**
    * https://vuepress.vuejs.org/zh/theme/default-theme-config.html
    */
