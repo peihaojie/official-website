@@ -1,9 +1,9 @@
 /*
  * @Author: HaoJie
  * @Date: 2022-08-31 14:49:04
- * @LastEditTime: 2023-08-19 19:56:55
+ * @LastEditTime: 2024-02-23 10:55:22
  * @LastEditors: HaoJie
- * @FilePath: \vuePress\docs\.vuepress\config.ts
+ * @FilePath: \official-website\docs\.vuepress\config.ts
  */
 import { defineConfig, UserPlugins, DefaultThemeConfig } from "vuepress/config";
 
@@ -227,7 +227,7 @@ export default defineConfig({
       {
         noCopy: false, // 选中的文字将无法被复制
         minLength: 0, // 如果长度超过 100 个字符
-        clipboardComponent: ".vuepress/components/clipboard.vue",
+        clipboardComponent: ".vuepress/components/Clipboard.vue",
       },
     ],
     /**

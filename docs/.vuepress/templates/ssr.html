@@ -1,9 +1,9 @@
 <!--
  * @Author: HaoJie
  * @Date: 2022-08-30 17:01:24
- * @LastEditTime: 2022-10-28 09:54:42
+ * @LastEditTime: 2024-02-23 10:41:48
  * @LastEditors: HaoJie
- * @FilePath: \vuePress\docs\.vuepress\templates\ssr.html
+ * @FilePath: \official-website\docs\.vuepress\templates\ssr.html
 -->
 <!DOCTYPE html>
 <html lang="{{ lang }}">
@@ -13,29 +13,10 @@
     <meta name="generator" content="VuePress {{ version }}" />
     {{{ userHeadTags }}} {{{ pageMeta }}} {{{ canonicalLink }}} {{{
     renderResourceHints() }}} {{{ renderStyles() }}}
-    <style>
-      .foot--wrap {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .foot--wrap span {
-        margin: 0 20px;
-      }
-    </style>
   </head>
   <body>
     <!--vue-ssr-outlet-->
     {{{ renderScripts() }}}
-    <div class="foot--wrap">
-      <span>© 2020-2022 HaoJie. All rights reserved.</span>
-      <span>
-        备案号:
-        <a href="https://beian.miit.gov.cn/" target="_blank">
-          粤ICP备2022026783号
-        </a>
-      </span>
-    </div>
+    <script src="./utils/setFooter.js"></script>
   </body>
 </html>
