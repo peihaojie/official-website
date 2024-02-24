@@ -25,7 +25,7 @@ pipeline {
                 [key: 'branch', value: '$.ref'],
                 [key: 'commit', value: '$.after']
             ],
-            token: 'gGeymVzXzJfgUIgVUr1tlnbXnT7LeyNy'
+            token: 'officialWebsite'
         )
     }
 
