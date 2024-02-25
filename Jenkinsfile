@@ -57,6 +57,7 @@ pipeline {
         stage('Copy to /www/web') {
             steps {
                 // 复制 build 文件夹的内容到 /www/web
+                // 要给权限 chmod -R 777 /www
                 script {
                     sh 'cp -r dist/* /www/web'
                 }
