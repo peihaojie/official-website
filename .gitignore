@@ -3,6 +3,7 @@ node_modules
 .cache
 .history
 dist
+web
 .DS_Store
 
 package-lock.json

@@ -55,11 +55,30 @@ pipeline {
         }
 
         stage('Copy to /www/web') {
+            // steps {
+            //     // 复制 build 文件夹的内容到 /www/web
+            //     // 要给权限 chmod -R 777 /www
+            //     script {
+            //         sh 'cp -r dist/* /www/web'
+            //     }
+            // }
+
             steps {
-                // 复制 build 文件夹的内容到 /www/web
-                // 要给权限 chmod -R 777 /www
                 script {
-                    sh 'cp -r dist/* /www/web'
+                    def sourceDir = 'web'
+                    def targetDir = '/www/web'
+
+                    // 判断目标文件夹是否存在，如果存在则删除
+                    dir(targetDir) {
+                        deleteDir()
+                        echo "Removed existing target directory: ${targetDir}"
+                    }
+
+                    // 复制文件夹到目标路径
+                    sh "cp -r ${sourceDir} ${targetDir}"
+
+                    // 给予目标文件夹权限
+                    sh "chmod -R 777 ${targetDir}"
                 }
             }
         }

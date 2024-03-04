@@ -27,7 +27,7 @@ export default defineConfig({
     },
   },
   // dev
-  dest: "./dist",
+  dest: "./web",
   host: "127.0.0.1",
   port: 8088,
   // build
@@ -39,11 +39,11 @@ export default defineConfig({
   },
   chainWebpack: config => {
     config.module
-      .rule('pug')
+      .rule("pug")
       .test(/\.pug$/)
-      .use('pug-plain-loader')
-      .loader('pug-plain-loader')
-      .end()
+      .use("pug-plain-loader")
+      .loader("pug-plain-loader")
+      .end();
   },
   /**
    * https://vuepress.vuejs.org/zh/theme/default-theme-config.html
