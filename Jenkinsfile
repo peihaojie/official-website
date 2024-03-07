@@ -55,14 +55,6 @@ pipeline {
         }
 
         stage('Copy to /www/web') {
-            // steps {
-            //     // 复制 build 文件夹的内容到 /www/web
-            //     // 要给权限 chmod -R 777 /www
-            //     script {
-            //         sh 'cp -r dist/* /www/web'
-            //     }
-            // }
-
             steps {
                 script {
                     def sourceDir = 'web'
@@ -83,37 +75,8 @@ pipeline {
             }
         }
     }
-    
-    // post {
-    //     success {
-    //         // 构建成功后的操作，例如发送通知
-    //         echo 'Build and deploy succeeded!'
-    //     }
-    //     failure {
-    //         // 构建失败后的操作，例如发送通知
-    //         echo 'Build or deploy failed!'
-    //     }
-    // }
 
     post {
-        success {
-            script {
-                echo 'Build and deploy succeeded!'
-            }
-            // 在构建成功后触发邮件通知，使用全局配置的 HTML 模板
-            // 空字符串表示使用全局配置的模板
-            emailext subject: 'Jenkins Pipeline', body: 'Official Website Build and Deploy Successful', to: '784184859@qq.com'
-        }
-        
-        failure {
-            script {
-                echo 'Build or deploy failed!'
-            }
-            // 在构建失败后触发邮件通知，使用全局配置的 HTML 模板
-            // 空字符串表示使用全局配置的模板
-            emailext subject: 'Jenkins Pipeline', body: 'Official Website Build Failed', to: '784184859@qq.com'
-        }
-        
         always {
             // 在构建完成后触发邮件通知，无论成功或失败，使用全局配置的 HTML 模板
             // 空字符串表示使用全局配置的模板
