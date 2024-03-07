@@ -117,7 +117,7 @@ pipeline {
         always {
             // 在构建完成后触发邮件通知，无论成功或失败，使用全局配置的 HTML 模板
             // 空字符串表示使用全局配置的模板
-            emailext subject: 'Jenkins Pipeline', body: 'Official Website Build Completed', to: '784184859@qq.com'
+            emailext subject: 'Jenkins Pipeline', body: '$DEFAULT_CONTENT', to: '784184859@qq.com'
         }
     }
 }
