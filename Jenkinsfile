@@ -77,6 +77,14 @@ pipeline {
     }
 
     post {
+        success {
+            // 构建成功后的操作，例如发送通知
+            echo 'Build and deploy succeeded!'
+        }
+        failure {
+            // 构建失败后的操作，例如发送通知
+            echo 'Build or deploy failed!'
+        }
         always {
             // 在构建完成后触发邮件通知，无论成功或失败，使用全局配置的 HTML 模板
             // 空字符串表示使用全局配置的模板
